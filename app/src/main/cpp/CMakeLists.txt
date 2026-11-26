@@ -12,4 +12,4 @@ add_subdirectory(Dobby)
 
 SET_OPTION(Plugin.Android.BionicLinkerUtil ON)
 
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE log dobby_static)
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE log dl dobby_static)
