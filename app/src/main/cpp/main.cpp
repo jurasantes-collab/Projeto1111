@@ -11,6 +11,7 @@
 #include "zygisk.hpp"
 #include "json/single_include/nlohmann/json.hpp"
 #include "dobby.h"
+#include "SelfRemap.h"
 
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, "TFIX/Native", __VA_ARGS__)
 
@@ -250,6 +251,8 @@ public:
         json.clear();
         targetVector.clear();
         targetPackages.clear();
+
+        SelfRemap::RemapByFilter("/data/adb/modules", "targetedfix");
     }
 
     void preServerSpecialize(zygisk::ServerSpecializeArgs *args) override {
